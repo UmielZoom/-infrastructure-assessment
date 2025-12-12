@@ -52,6 +52,8 @@ You should see:
 
 Open your browser to `http://localhost:8080`
 
+**Note:** The application runs on port 8080 to avoid conflicts with other services that commonly use port 80 (such as IIS on Windows).
+
 ## Verifying It Works
 
 ### Load Balancing
@@ -75,7 +77,6 @@ docker service logs webapp_nginx
 ```
 
 ## Architecture
-
 ```
 [Client] 
    ↓
@@ -149,6 +150,7 @@ Both should show full replicas (3/3 and 1/1).
 - The application is stateless and can be safely restarted
 - Cache directory is created automatically on first run
 - Logs are retained until containers are removed
+- Port 8080 is used instead of port 80 to ensure compatibility across different environments
 
 ## Production Considerations
 
